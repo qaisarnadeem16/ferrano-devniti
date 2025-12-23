@@ -22,11 +22,11 @@ export default function Navbar() {
       label: "Product & services",
       type: "dropdown",
       items: [
-        { label: "Small modal", href: "/small-modal" },
-        { label: "Large modal", href: "/large-modal" },
+        { label: "Small modal", href: "/products/small-modal" },
+        { label: "Large modal", href: "/products/large-modal" },
       ],
     },
-    { label: "Project gallery", href: "/project-gallery" },
+    { label: "Project gallery", href: "/gallery" },
     { label: "FAQs", href: "/faqs" },
   ];
 
@@ -114,7 +114,7 @@ export default function Navbar() {
 
           <div>
             <Link
-              href={"##"}
+              href={"/contact-us"}
               className="hidden lg:flex px-8.75 py-3 bg-primary text-[18px]"
             >
               Contact Us
@@ -205,7 +205,7 @@ export default function Navbar() {
 
             <div className="px-8 pb-10">
               <Link
-                href="##"
+                href="/contact-us"
                 onClick={closeMobileMenu}
                 className="block w-full text-center px-8 py-4 bg-primary text-white text-lg hover:bg-primary/90 transition-all duration-200  "
               >
