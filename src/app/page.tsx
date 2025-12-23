@@ -1,9 +1,11 @@
+import BuyingProcess from "@/components/home/buying-process";
 import ItalianSection from "@/components/home/italian-section";
 import OutdoorExp from "@/components/home/outdoor-exp";
 import Specifications from "@/components/home/specs";
 import Stories from "@/components/home/stories";
 import WhyUs from "@/components/home/why-us";
 import Bring from "@/components/shared/bring";
+import { Footer } from "@/components/shared/footer";
 import { LuxuryHero } from "@/components/shared/hero-section";
 
 const page = () => {
@@ -31,6 +33,8 @@ const page = () => {
 
        <Stories/>
 
+       <BuyingProcess/>
+
        <Bring 
        image="/images/hero-home.jpg"
         title="Bring Luxury Outdoors"
@@ -40,7 +44,6 @@ const page = () => {
         buttonLink="/contacts" 
         />
 
-         
     </>
   );
 };

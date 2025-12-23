@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import Container from "./common/container";
+import { usePathname } from "next/navigation";
 
-// import { Button } from "@/components/ui/button"
 
 interface HeroButton {
   label: string;
@@ -14,10 +14,11 @@ interface HeroButton {
 
 interface LuxuryHeroProps {
   backgroundImage: string;
-  title: string;
+  title ?: string;
   highlightedText: string;
-  description: string;
+  description ?: React.ReactNode;
   buttons?: HeroButton[];
+  className ?: string;
 }
 
 export function LuxuryHero({
@@ -26,26 +27,29 @@ export function LuxuryHero({
   highlightedText,
   description,
   buttons = [],
+  className =''
 }: LuxuryHeroProps) {
+
+  const pathname = usePathname();
+
+
   return (
     <section
-      className="relative min-h-125 lg:min-h-175 w-full bg-cover bg-center flex items-center"
+      className={`relative min-h-126 py-3 lg:min-h-175 w-full bg-cover bg-center flex items-center ${className}`}
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       {/* Dark overlay for better text contrast */}
       <div className="absolute inset-0 bg-black/30" />
 
       {/* Content container */}
-      <Container>
-        <div className="relative z-10 lg:py-24">
-          <div className=" ">
+      <Container className={`relative z-10 lg:py-24 `}>
             {/* Title  */}
-            <h1 className="text-5xl sm:text-6xl xl:text-[80px] font-thin font-outfit  text-white mb-2">
+            <h1 className={`text-5xl sm:text-6xl xl:text-[80px] font-thin font-outfit uppercase text-white mb-2 ${pathname === '/faqs' ? 'font-bold! text-primary!':''}`}>
               {title}
             </h1>
 
             {/* Highlighted golden text   */}
-            <h2 className="text-5xl sm:text-6xl xl:text-7xl font-bold tracking-wide text-primary mb-4">
+            <h2 className="text-5xl sm:text-6xl xl:text-7xl uppercase font-bold tracking-wide text-primary mb-4">
               {highlightedText}
             </h2>
 
@@ -65,7 +69,7 @@ export function LuxuryHero({
                 {buttons.map((button, index) => (
                   <button
                     key={index}
-                    className="bg-primary hover:bg-Primary/60 text-white h-8 sm:h-12 tracking-wider uppercase px-6 text-xs md:text-[15px]"
+                    className="w-full sm:w-fit bg-primary hover:bg-Primary/60 font-medium text-white h-8 sm:h-12 tracking-wider uppercase sm:px-14 text-xs md:text-[15px]"
                   >
                     {button.href ? (
                       <Link href={button.href}> {button.label}</Link>
@@ -76,8 +80,6 @@ export function LuxuryHero({
                 ))}
               </div>
             )}
-          </div>
-        </div>
       </Container>
     </section>
   );

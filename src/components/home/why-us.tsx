@@ -6,23 +6,28 @@ import { featuresData } from "@/data";
 
 const WhyUs = () => {
   return (
-    <Container parentStyle="py-20" className="">
-      <SectionHeading
-        normalText="Why choose us"
-        wrapperClassName="text-center mb-20"
-        normalClassName="font-bold! text-white"
-      />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {featuresData.map((item, index) => (
-          <Card
-            key={index}
-            icon={item.icon}
-            title={item.title}
-            description={item.description}
-          />
-        ))}
-      </div>
-    </Container>
+    <div className="relative overflow-hidden">
+      {/* elipse circles */}
+      <div className="absolute -right-20 top-1 h-1/2 w-1/3 rounded-full blur-3xl opacity-30 bg-primary" />
+
+      <Container parentStyle="py-20 " className="">
+        <SectionHeading
+          normalText="Why choose us"
+          wrapperClassName="text-center mb-20"
+          normalClassName="font-bold! text-white"
+        />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {featuresData.map((item, index) => (
+            <Card
+              key={index}
+              icon={item.icon}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
+        </div>
+      </Container>
+    </div>
   );
 };
 
